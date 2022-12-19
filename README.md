@@ -1,6 +1,4 @@
-# Final Greenfoot Project
-This is the README.md file.
+# Final ~~Greenfoot~~ Unity Project
+ Final project for ICS3U1.
 
-Consider using **Markdown** syntax to format the text in this file. [Markdown basics](https://www.markdownguide.org/getting-started/)
-
-
+ Made with Unity 2021.3.16f1.
