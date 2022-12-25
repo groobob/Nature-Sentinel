@@ -176,7 +176,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -238,7 +238,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 8
   height: 10
-  gridTile: {fileID: 6122366497772169149, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
+  grassTile: {fileID: 3921182363530119289, guid: 170b78dbadee3054e817450e09e17b48, type: 3}
+  mountainTile: {fileID: 6769279964461227419, guid: 71dc0632122a0694882d2c309bafd297, type: 3}
   transformCamera: {fileID: 519420032}
 --- !u!4 &1985704804
 Transform:
