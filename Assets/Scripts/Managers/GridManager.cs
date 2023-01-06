@@ -6,17 +6,18 @@ using UnityEngine;
 */
 public class GridManager : MonoBehaviour
 {
-    //Reference Variables
+    public static GridManager Instance;
     [SerializeField] private int width, height;
     [SerializeField] private Tile grassTile, mountainTile;
     [SerializeField] private Transform transformCamera;
     private Dictionary<Vector2, Tile> tiles;
 
-    void Start()
+    private void Awake()
     {
-        CreateGrid();
+        Instance = this;
     }
-    void CreateGrid()
+
+    public void GenerateGrid()
     {
         tiles = new Dictionary<Vector2, Tile>();
         for(int x = 0; x < width; x++)
@@ -27,14 +28,15 @@ public class GridManager : MonoBehaviour
                 var spawnedTile = Instantiate(randomTile, new Vector3(x, y), Quaternion.identity);
                 spawnedTile.name = $"tile {x} {y}";
 
-                var isOffset = (x + y) % 2 == 1;
-                spawnedTile.SetOffsetColor(isOffset);
+                spawnedTile.init(x, y);
 
                 tiles[new Vector2(x, y)] = spawnedTile;
             }
         }
 
         transformCamera.position = new Vector3(width / 2f - 0.5f, height / 2f - 0.5f);
+
+        GameManager.Instance.ChangeState(GameState.SpawnPlayers);
     }
 
     public Tile GetTileAtPosition(Vector2 pos)

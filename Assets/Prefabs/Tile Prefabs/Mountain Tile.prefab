@@ -55,29 +55,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mountain Tile
       objectReference: {fileID: 0}
-    - target: {fileID: 6122366497772169149, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
-      propertyPath: baseColor.b
-      value: 0.07563093
-      objectReference: {fileID: 0}
-    - target: {fileID: 6122366497772169149, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
-      propertyPath: baseColor.g
-      value: 0.254717
-      objectReference: {fileID: 0}
-    - target: {fileID: 6122366497772169149, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
-      propertyPath: baseColor.r
-      value: 0.04205233
-      objectReference: {fileID: 0}
-    - target: {fileID: 6122366497772169149, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
-      propertyPath: offsetColor.b
-      value: 0.05125373
-      objectReference: {fileID: 0}
-    - target: {fileID: 6122366497772169149, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
-      propertyPath: offsetColor.g
-      value: 0.2264151
-      objectReference: {fileID: 0}
-    - target: {fileID: 6122366497772169149, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
-      propertyPath: offsetColor.r
-      value: 0.030971883
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
+--- !u!1 &3122478559741875465 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2473344894214025007, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
+  m_PrefabInstance: {fileID: 650299174781663782}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3131979877936045896 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2481858042708862318, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
+  m_PrefabInstance: {fileID: 650299174781663782}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7030728690632238192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3131979877936045896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cec5ea041a735e9488d5e767ba53223e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 3131979877936045903}
+  highlight: {fileID: 3122478559741875465}
+--- !u!212 &3131979877936045903 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2481858042708862313, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
+  m_PrefabInstance: {fileID: 650299174781663782}
+  m_PrefabAsset: {fileID: 0}

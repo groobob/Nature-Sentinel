@@ -4,19 +4,15 @@ using UnityEngine;
 /*
     Class comment
 */
-public class Tile : MonoBehaviour
+public abstract class Tile : MonoBehaviour
 {
     //Reference Variables
-    [SerializeField] private Color baseColor, offsetColor;
-    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] protected SpriteRenderer spriteRenderer;
     [SerializeField] private GameObject highlight;
-
-    public void SetOffsetColor(bool offset)
+    public virtual void init(int x, int y)
     {
-        if(!offset) spriteRenderer.color = baseColor;
-        else if(offset) spriteRenderer.color = offsetColor;
+        
     }
-    
     void OnMouseEnter()
     {
         highlight.SetActive(true);

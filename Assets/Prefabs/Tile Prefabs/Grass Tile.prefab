@@ -53,7 +53,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2481858042708862318, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
       propertyPath: m_Name
-      value: Base Tile
+      value: Grass Tile
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
+--- !u!1 &4669884691374670059 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2473344894214025007, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
+  m_PrefabInstance: {fileID: 7106070471754067908}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4678256827233766058 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2481858042708862318, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
+  m_PrefabInstance: {fileID: 7106070471754067908}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-820684195404979304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4678256827233766058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b5c330fb4a8ed48afe156d2b55492a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 4678256827233766061}
+  highlight: {fileID: 4669884691374670059}
+  baseColor: {r: 0.4672481, g: 0.9433962, b: 0.5549596, a: 1}
+  offsetColor: {r: 0.40574938, g: 0.8867924, b: 0.4656888, a: 1}
+--- !u!212 &4678256827233766061 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2481858042708862313, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
+  m_PrefabInstance: {fileID: 7106070471754067908}
+  m_PrefabAsset: {fileID: 0}
