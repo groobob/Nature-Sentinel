@@ -51,6 +51,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2481858042708862313, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.36525962
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481858042708862313, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8018868
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481858042708862313, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.2988163
+      objectReference: {fileID: 0}
     - target: {fileID: 2481858042708862318, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
       propertyPath: m_Name
       value: Mountain Tile
