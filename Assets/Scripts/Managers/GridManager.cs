@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 /*
     Class Comment
@@ -37,6 +38,11 @@ public class GridManager : MonoBehaviour
         transformCamera.position = new Vector3(width / 2f - 0.5f, height / 2f - 0.5f);
 
         GameManager.Instance.ChangeState(GameState.SpawnPlayers);
+    }
+    
+    public Tile GetPlayerSpawnTile()
+    {
+        return tiles.Where(t => t.Key.y < height / 2 && t.Value.walkable).OrderBy(tag => Random.value).First().Value;
     }
 
     public Tile GetTileAtPosition(Vector2 pos)
