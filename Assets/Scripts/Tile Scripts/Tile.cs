@@ -11,6 +11,8 @@ public abstract class Tile : MonoBehaviour
     [SerializeField] private GameObject highlight;
     [SerializeField] private bool isWalkable;
 
+    public string TileName;
+
     public BaseUnit OccupiedUnit;
     public bool walkable => isWalkable && OccupiedUnit == null;
 
@@ -21,10 +23,12 @@ public abstract class Tile : MonoBehaviour
     void OnMouseEnter()
     {
         highlight.SetActive(true);
+        MenuManager.Instance.ShowTileInfo(this);
     }
     void OnMouseExit()
     {
         highlight.SetActive(false);
+        MenuManager.Instance.ShowTileInfo(null);
     }
 
     void OnMouseDown()
@@ -43,6 +47,7 @@ public abstract class Tile : MonoBehaviour
                     //attacking logic (decrease health or kill enemy)
                     Destroy(enemy.gameObject);
                     UnitManager.Instance.SelectedPlayer = null;
+                    MenuManager.Instance.ShowSelectedHero(null);
                 }
             }
         }

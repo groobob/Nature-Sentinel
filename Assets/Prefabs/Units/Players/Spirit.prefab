@@ -97,4 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a658f350635e8d443805d981ef2c79fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UnitName: Spirit (Player)
   occupiedTile: {fileID: 0}
+  faction: 0

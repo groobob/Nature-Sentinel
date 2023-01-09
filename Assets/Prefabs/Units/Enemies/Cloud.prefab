@@ -97,4 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0764a27e2193db9459f6257d19c8bcba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UnitName: Cloud (Enemy)
   occupiedTile: {fileID: 0}
+  faction: 1

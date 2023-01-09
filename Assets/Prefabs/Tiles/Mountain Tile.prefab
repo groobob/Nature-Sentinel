@@ -93,6 +93,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 3131979877936045903}
   highlight: {fileID: 3122478559741875465}
+  isWalkable: 0
+  TileName: Mountains
+  OccupiedUnit: {fileID: 0}
 --- !u!212 &3131979877936045903 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 2481858042708862313, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}

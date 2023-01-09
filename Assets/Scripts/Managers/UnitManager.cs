@@ -57,5 +57,6 @@ public class UnitManager : MonoBehaviour
     public void SetSelectedPlayer(BasePlayer player)
     {
         SelectedPlayer = player;
+        MenuManager.Instance.ShowSelectedHero(player);
     }
 }
