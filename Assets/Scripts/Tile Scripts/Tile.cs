@@ -20,14 +20,15 @@ public abstract class Tile : MonoBehaviour
     {
         
     }
+
     void OnMouseEnter()
     {
-        highlight.SetActive(true);
+        if(!highlight.activeInHierarchy) highlight.SetActive(true);
         MenuManager.Instance.ShowTileInfo(this);
     }
     void OnMouseExit()
     {
-        highlight.SetActive(false);
+        if (highlight.activeInHierarchy) highlight.SetActive(false);
         MenuManager.Instance.ShowTileInfo(null);
     }
 
@@ -38,7 +39,10 @@ public abstract class Tile : MonoBehaviour
         //attack
         if(OccupiedUnit != null)
         {
-            if (OccupiedUnit.faction == Faction.Player) UnitManager.Instance.SetSelectedPlayer((BasePlayer)OccupiedUnit);
+            if (OccupiedUnit.faction == Faction.Player)
+            {
+                UnitManager.Instance.SetSelectedPlayer((BasePlayer)OccupiedUnit);
+            }
             else if (OccupiedUnit.faction == Faction.Enemy)
             {
                 if (UnitManager.Instance.SelectedPlayer != null)
