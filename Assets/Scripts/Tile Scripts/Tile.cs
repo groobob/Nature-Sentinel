@@ -39,7 +39,7 @@ public abstract class Tile : MonoBehaviour
         if(OccupiedUnit != null)
         {
             if (OccupiedUnit.faction == Faction.Player) UnitManager.Instance.SetSelectedPlayer((BasePlayer)OccupiedUnit);
-            else
+            else if (OccupiedUnit.faction == Faction.Enemy)
             {
                 if (UnitManager.Instance.SelectedPlayer != null)
                 {
@@ -54,7 +54,7 @@ public abstract class Tile : MonoBehaviour
         //move
         else
         {
-            if(UnitManager.Instance.SelectedPlayer != null)
+            if(UnitManager.Instance.SelectedPlayer != null && walkable)
             {
                 SetUnit(UnitManager.Instance.SelectedPlayer);
                 UnitManager.Instance.SetSelectedPlayer(null);
