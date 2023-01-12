@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7497243318472735995, guid: 10a38038ef02f5e43b57b997456857f9, type: 3}
       propertyPath: m_Name
-      value: Attack1
+      value: Card1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10a38038ef02f5e43b57b997456857f9, type: 3}
@@ -74,6 +74,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf547cbce5409af4fb8f5eb60df0db71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardName: 
-  damage: 0
-  range: 0
+  cardName: Straight Shot
+  damage: 10
+  range: 1
+  speed: 10
+  shotPrefab: {fileID: 5851603155396103481, guid: daf893c7c2379bb48b9f461a1ed08dd2, type: 3}

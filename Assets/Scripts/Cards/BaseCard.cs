@@ -4,7 +4,22 @@ using UnityEngine;
 
 public class BaseCard : MonoBehaviour
 {
-    public string cardName;
-    public int damage;
-    public int range;
+    [SerializeField] public string cardName;
+    [SerializeField] public int damage;
+    [SerializeField] public int range;
+    [SerializeField] public int speed;
+    [SerializeField] public GameObject shotPrefab;
+
+    void OnMouseDown()
+    {
+        if (GameManager.Instance.State != GameState.PlayerTurn) return;
+
+        if (UnitManager.Instance.SelectedPlayer != null)
+        {
+            CardManager.Instance.SetSelectedCard(this);
+            CardManager.Instance.canShoot = true;
+            Debug.Log(CardManager.Instance.SelectedCard);
+        }
+    }
+
 }

@@ -7,6 +7,8 @@ public class CardManager : MonoBehaviour
 {
     public static CardManager Instance;
     public List<ScriptableCard> _cards;
+    public BaseCard SelectedCard;
+    public bool canShoot = false;
 
     private void Awake()
     {
@@ -15,8 +17,13 @@ public class CardManager : MonoBehaviour
         _cards = Resources.LoadAll<ScriptableCard>("cards").ToList();
     }
 
-    public BaseCard GetRandomUnit()
+    public BaseCard GetRandomCard()
     {
         return _cards.OrderBy(o => Random.value).First().CardPrefab;
+    }
+
+    public void SetSelectedCard(BaseCard card)
+    {
+        SelectedCard = card;
     }
 }
