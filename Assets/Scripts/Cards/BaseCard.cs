@@ -12,13 +12,12 @@ public class BaseCard : MonoBehaviour
 
     void OnMouseDown()
     {
+        Debug.Log("Clicked");
         if (GameManager.Instance.State != GameState.PlayerTurn) return;
 
         if (UnitManager.Instance.SelectedPlayer != null)
         {
             CardManager.Instance.SetSelectedCard(this);
-            CardManager.Instance.canShoot = true;
-            Debug.Log(CardManager.Instance.SelectedCard);
         }
     }
 

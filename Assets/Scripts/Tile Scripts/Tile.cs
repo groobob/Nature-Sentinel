@@ -43,13 +43,12 @@ public abstract class Tile : MonoBehaviour
             {
                 UnitManager.Instance.SetSelectedPlayer((BasePlayer)OccupiedUnit);
             }
-            else if (OccupiedUnit.faction == Faction.Enemy)
+            else if (OccupiedUnit.faction == Faction.Enemy && CardManager.Instance.canShoot)
             {
                 if (UnitManager.Instance.SelectedPlayer != null)
                 {
                     var enemy = (BaseEnemy)OccupiedUnit;
-                    //attacking logic (decrease health or kill enemy)
-                    Destroy(enemy.gameObject);
+                    UnitManager.Instance.SelectedPlayer.ShootBulletAtMouse(CardManager.Instance.SelectedCard);
                     UnitManager.Instance.SelectedPlayer = null;
                     MenuManager.Instance.ShowSelectedHero(null);
                 }

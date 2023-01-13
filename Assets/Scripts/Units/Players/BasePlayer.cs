@@ -4,16 +4,9 @@ using UnityEngine;
 
 public class BasePlayer : BaseUnit
 {
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && CardManager.Instance.canShoot)
-        {
-            ShootBulletAtMouse(CardManager.Instance.SelectedCard);
-        }
-    }
-
     public void ShootBulletAtMouse(BaseCard card)
     {
+        Debug.Log("shot triggered");
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = 0;
         mousePos = Camera.main.ScreenToWorldPoint(mousePos);
@@ -21,10 +14,11 @@ public class BasePlayer : BaseUnit
         direction.Normalize();
 
         GameObject projectile = Instantiate(card.shotPrefab, transform.position, Quaternion.identity);
-        projectile.GetComponent<Rigidbody2D>().AddForce(direction * card.speed);
+        projectile.GetComponent<Rigidbody2D>().AddForce(direction * card.speed * 100);
         Destroy(projectile, 10f);
         Destroy(card);
-        CardManager.Instance.SelectedCard = null;
-        CardManager.Instance.canShoot= false;
+        Destroy(CardManager.Instance.SelectedCard.gameObject);
+        Debug.Log(CardManager.Instance.SelectedCard);
+        CardManager.Instance.canShoot = false;
     }
 }
