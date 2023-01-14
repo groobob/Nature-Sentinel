@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2473344894214025007, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2481858042708862312, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -66,6 +70,10 @@ PrefabInstance:
     - target: {fileID: 2481858042708862318, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
       propertyPath: m_Name
       value: Mountain Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481858042708862318, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}

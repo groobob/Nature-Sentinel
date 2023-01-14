@@ -57,7 +57,7 @@ public abstract class Tile : MonoBehaviour
         //move
         else
         {
-            if(UnitManager.Instance.SelectedPlayer != null && walkable)
+            if(UnitManager.Instance.SelectedPlayer != null && walkable && !CardManager.Instance.canShoot)
             {
                 SetUnit(UnitManager.Instance.SelectedPlayer);
                 UnitManager.Instance.SetSelectedPlayer(null);

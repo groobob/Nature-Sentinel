@@ -77,5 +77,5 @@ MonoBehaviour:
   cardName: Straight Shot
   damage: 10
   range: 1
-  speed: 10
-  shotPrefab: {fileID: 5851603155396103481, guid: daf893c7c2379bb48b9f461a1ed08dd2, type: 3}
+  speed: 1
+  shotPrefab: {fileID: 6650421074164701217, guid: daf893c7c2379bb48b9f461a1ed08dd2, type: 3}

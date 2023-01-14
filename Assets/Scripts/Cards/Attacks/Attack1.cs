@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attack1 : Card1
+public class Attack1 : BaseAttack
 {
-    public void Start()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        Destroy(gameObject);
     }
 }
