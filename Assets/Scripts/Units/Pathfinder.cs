@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PathFinder
@@ -23,13 +22,10 @@ public class PathFinder
 
             if(currentTile == end)
             {
-                //finalizing the path
                 return GetFinishedList(start, end);
             }
 
-            var neighbourTiles = GetNeighbourTiles(currentTile);
-
-            foreach (var neighbour in neighbourTiles)
+            foreach (var neighbour in GetNeighbourTiles(currentTile))
             {
                 if(!neighbour.walkable || closedList.Contains(neighbour))
                 {
@@ -37,7 +33,7 @@ public class PathFinder
                 }
 
                 neighbour.G = GetManhattanDistance(start, neighbour);
-                neighbour.G = GetManhattanDistance(end, neighbour);
+                neighbour.H = GetManhattanDistance(end, neighbour);
 
                 neighbour.previous = currentTile;
 
@@ -106,7 +102,7 @@ public class PathFinder
         return finishedList;
     }
 
-    private int GetManhattanDistance(Tile start, Tile neighbour)
+    private float GetManhattanDistance(Tile start, Tile neighbour)
     {
         return Mathf.Abs(start.gridLocation.x - neighbour.gridLocation.x) + Mathf.Abs(start.gridLocation.y - neighbour.gridLocation.y);
     }
@@ -118,7 +114,7 @@ public class PathFinder
         List<Tile> neighbours = new List<Tile>();
 
         //top tile
-        Vector2Int locationToCheck = new Vector2Int(currentTile.gridLocation.x, currentTile.gridLocation.y + 1);
+        Vector2 locationToCheck = new Vector2(currentTile.gridLocation.x, currentTile.gridLocation.y + 1);
 
         if (map.ContainsKey(locationToCheck))
         {
@@ -126,7 +122,7 @@ public class PathFinder
         }
 
         //left tile
-        locationToCheck = new Vector2Int(currentTile.gridLocation.x - 1, currentTile.gridLocation.y);
+        locationToCheck = new Vector2(currentTile.gridLocation.x - 1, currentTile.gridLocation.y);
 
         if (map.ContainsKey(locationToCheck))
         {
@@ -134,7 +130,7 @@ public class PathFinder
         }
 
         //right tile
-        locationToCheck = new Vector2Int(currentTile.gridLocation.x + 1, currentTile.gridLocation.y);
+        locationToCheck = new Vector2(currentTile.gridLocation.x + 1, currentTile.gridLocation.y);
 
         if (map.ContainsKey(locationToCheck))
         {
@@ -142,7 +138,7 @@ public class PathFinder
         }
 
         //bottom tile
-        locationToCheck = new Vector2Int(currentTile.gridLocation.x, currentTile.gridLocation.y - 1);
+        locationToCheck = new Vector2(currentTile.gridLocation.x, currentTile.gridLocation.y - 1);
 
         if (map.ContainsKey(locationToCheck))
         {

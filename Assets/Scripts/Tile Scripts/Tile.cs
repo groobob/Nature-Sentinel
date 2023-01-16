@@ -17,17 +17,21 @@ public abstract class Tile : MonoBehaviour
     
     public bool walkable => isWalkable && OccupiedUnit == null;
 
-    public int G;
-    public int H;
+    public float G;
+    public float H;
 
-    public int F { get { return G + H; } }
+    public float F { get { return G + H; } }
 
     public Tile previous;
-    public Vector3Int gridLocation;
+    public Vector3 gridLocation;
 
     //for pathfinding
     public int distance;
 
+    public void Awake()
+    {
+        gridLocation = (Vector3)transform.position;
+    }
     public virtual void init(int x, int y)
     {
         
