@@ -10,6 +10,8 @@ public class UnitManager : MonoBehaviour
     private List<ScriptableUnit> _units;
 
     public BasePlayer SelectedPlayer;
+
+    public bool hasMoved;
     private void Awake()
     {
         Instance = this;
@@ -47,6 +49,11 @@ public class UnitManager : MonoBehaviour
 
             GameManager.Instance.ChangeState(GameState.PlayerTurn);
         }
+    }
+
+    public void SetHasMoved(bool moved)
+    {
+        hasMoved = moved;
     }
 
     private T GetRandomUnit<T>(Faction faction) where T : BaseUnit

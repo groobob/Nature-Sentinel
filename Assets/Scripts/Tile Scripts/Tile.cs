@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 /*
     Class comment
 */
 public abstract class Tile : MonoBehaviour
 {
-    //Reference Variables
     [SerializeField] protected SpriteRenderer spriteRenderer;
     [SerializeField] private GameObject highlight;
     [SerializeField] private bool isWalkable;
@@ -14,7 +14,19 @@ public abstract class Tile : MonoBehaviour
     public string TileName;
 
     public BaseUnit OccupiedUnit;
+    
     public bool walkable => isWalkable && OccupiedUnit == null;
+
+    public int G;
+    public int H;
+
+    public int F { get { return G + H; } }
+
+    public Tile previous;
+    public Vector3Int gridLocation;
+
+    //for pathfinding
+    public int distance;
 
     public virtual void init(int x, int y)
     {
@@ -50,17 +62,20 @@ public abstract class Tile : MonoBehaviour
                     var enemy = (BaseEnemy)OccupiedUnit;
                     UnitManager.Instance.SelectedPlayer.ShootBulletAtMouse(CardManager.Instance.SelectedCard);
                     UnitManager.Instance.SelectedPlayer = null;
+                    UnitManager.Instance.SetHasMoved(false);
                     MenuManager.Instance.ShowSelectedHero(null);
+                    GameManager.Instance.ChangeState(GameState.EnemyTurn);
                 }
             }
         }
         //move
         else
         {
-            if(UnitManager.Instance.SelectedPlayer != null && walkable && !CardManager.Instance.canShoot)
+            if(UnitManager.Instance.SelectedPlayer != null && walkable && !CardManager.Instance.canShoot && !UnitManager.Instance.hasMoved)
             {
                 SetUnit(UnitManager.Instance.SelectedPlayer);
                 UnitManager.Instance.SetSelectedPlayer(null);
+                UnitManager.Instance.SetHasMoved(true);
             }
         }
     }

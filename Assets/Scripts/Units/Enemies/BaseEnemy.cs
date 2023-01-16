@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class BaseEnemy : BaseUnit
 {
-    
+    [SerializeField] private int moveRange;
+    PathFinder finder = new PathFinder();
 }

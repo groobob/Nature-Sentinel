@@ -11,7 +11,7 @@ public class GridManager : MonoBehaviour
     [SerializeField] private int width, height;
     [SerializeField] private Tile grassTile, mountainTile;
     [SerializeField] private Transform transformCamera;
-    private Dictionary<Vector2, Tile> tiles;
+    public Dictionary<Vector2, Tile> tiles;
 
     private void Awake()
     {
@@ -28,6 +28,7 @@ public class GridManager : MonoBehaviour
                 var randomTile = Random.Range(0, 6) == 3 ? mountainTile : grassTile;
                 var spawnedTile = Instantiate(randomTile, new Vector3(x, y), Quaternion.identity);
                 spawnedTile.name = $"tile {x} {y}";
+                spawnedTile.GetComponent<Tile>().gridLocation = new Vector3Int(x, y);
 
                 spawnedTile.init(x, y);
 
