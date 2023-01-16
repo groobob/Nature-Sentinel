@@ -63,7 +63,8 @@ public abstract class Tile : MonoBehaviour
                     UnitManager.Instance.SelectedPlayer.ShootBulletAtMouse(CardManager.Instance.SelectedCard);
                     UnitManager.Instance.SelectedPlayer = null;
                     UnitManager.Instance.SetHasMoved(false);
-                    MenuManager.Instance.ShowSelectedHero(null);
+                    MenuManager.Instance.ShowSelectedPlayer(null);
+                    //placeholder, make show end turn buttom in menu manager
                     GameManager.Instance.ChangeState(GameState.EnemyTurn);
                 }
             }
@@ -76,6 +77,7 @@ public abstract class Tile : MonoBehaviour
                 SetUnit(UnitManager.Instance.SelectedPlayer);
                 UnitManager.Instance.SetSelectedPlayer(null);
                 UnitManager.Instance.SetHasMoved(true);
+                UnitManager.Instance.SetPlayerTile(this);
             }
         }
     }

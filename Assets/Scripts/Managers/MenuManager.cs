@@ -33,7 +33,7 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    public void ShowSelectedHero(BasePlayer player)
+    public void ShowSelectedPlayer(BasePlayer player)
     {
         if(player == null)
         {

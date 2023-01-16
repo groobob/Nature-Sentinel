@@ -101,6 +101,8 @@ MonoBehaviour:
   UnitName: Cloud (Enemy)
   occupiedTile: {fileID: 0}
   faction: 1
+  moveRange: 1
+  health: 100
 --- !u!60 &7295829358876860560
 PolygonCollider2D:
   m_ObjectHideFlags: 0
