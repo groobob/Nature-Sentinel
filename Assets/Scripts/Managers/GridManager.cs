@@ -25,7 +25,7 @@ public class GridManager : MonoBehaviour
         {
             for(int y = 0; y < height; y++)
             {
-                var randomTile = Random.Range(0, 6) == 3 ? mountainTile : grassTile;
+                var randomTile = Random.Range(0, 8) == 3 ? mountainTile : grassTile;
                 var spawnedTile = Instantiate(randomTile, new Vector3(x, y), Quaternion.identity);
                 spawnedTile.name = $"tile {x} {y}";
                 spawnedTile.GetComponent<Tile>().gridLocation = new Vector3(x, y);
