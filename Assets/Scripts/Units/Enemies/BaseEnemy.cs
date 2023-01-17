@@ -15,7 +15,16 @@ public class BaseEnemy : BaseUnit
         currentTile = GridManager.Instance.tiles[transform.position];
         List<Tile> path = finder.FindPath(currentTile, UnitManager.Instance.playerTile);
         path[moveRange].SetUnit(this);
+    }
 
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            UnitManager.Instance.enemies.Remove(this);
+            Destroy(gameObject);
+        }
     }
 
 }

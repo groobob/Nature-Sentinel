@@ -13,6 +13,9 @@ public class UnitManager : MonoBehaviour
     public Tile playerTile;
     public List<BaseEnemy> enemies;
 
+    public int enemyCount;
+    public int enemyIncrease;
+
     public bool hasMoved;
     private void Awake()
     {
@@ -40,8 +43,6 @@ public class UnitManager : MonoBehaviour
 
     public void SpawnEnemies()
     {
-        var enemyCount = 2;
-
         for (int i = 0; i < enemyCount; i++)
         {
             var randomPrefab = GetRandomUnit<BaseEnemy>(Faction.Enemy);
@@ -53,6 +54,7 @@ public class UnitManager : MonoBehaviour
 
             GameManager.Instance.ChangeState(GameState.PlayerTurn);
         }
+        enemyCount += enemyIncrease;
     }
 
     public void SetHasMoved(bool moved)

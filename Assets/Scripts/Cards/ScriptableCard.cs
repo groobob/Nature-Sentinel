@@ -13,4 +13,5 @@ public class ScriptableCard : ScriptableObject
     public int range;
     public int speed;
     public GameObject shotPrefab;
+    public Sprite cardImage;
 }
