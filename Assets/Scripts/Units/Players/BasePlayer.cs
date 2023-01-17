@@ -5,7 +5,7 @@ using UnityEngine;
 public class BasePlayer : BaseUnit
 {
     [SerializeField] public int moveDistance;
-    public void ShootBulletAtMouse(BaseCard card)
+    public void ShootBulletAtMouse(BaseCard selectedCard)
     {
         Debug.Log("shot triggered");
         Vector3 mousePos = Input.mousePosition;
@@ -14,11 +14,11 @@ public class BasePlayer : BaseUnit
         Vector3 direction = mousePos - transform.position;
         direction.Normalize();
 
-        GameObject projectile = Instantiate(card.shotPrefab, transform.position, Quaternion.identity);
-        projectile.GetComponent<BaseAttack>().damage = card.damage;
-        projectile.GetComponent<Rigidbody2D>().AddForce(direction * card.speed * 1000);
+        GameObject projectile = Instantiate(selectedCard.card.shotPrefab, transform.position, Quaternion.identity);
+        projectile.GetComponent<BaseAttack>().damage = selectedCard.card.damage;
+        projectile.GetComponent<Rigidbody2D>().AddForce(direction * selectedCard.card.speed * 1000);
         Destroy(projectile, 10f);
-        Destroy(card);
+        Destroy(selectedCard);
         Destroy(CardManager.Instance.SelectedCard.gameObject);
         Debug.Log(CardManager.Instance.SelectedCard);
         CardManager.Instance.canShoot = false;
