@@ -14,12 +14,8 @@ public class BaseEnemy : BaseUnit
     {
         currentTile = GridManager.Instance.tiles[transform.position];
         List<Tile> path = finder.FindPath(currentTile, UnitManager.Instance.playerTile);
-        Debug.Log(currentTile);
-        Debug.Log(UnitManager.Instance.playerTile);
-        Debug.Log(moveRange);
-        Debug.Log(path);
         path[moveRange].SetUnit(this);
-        Debug.Log("Past!");
+
     }
 
 }

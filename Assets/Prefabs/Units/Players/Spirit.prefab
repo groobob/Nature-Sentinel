@@ -100,3 +100,4 @@ MonoBehaviour:
   UnitName: Spirit (Player)
   occupiedTile: {fileID: 0}
   faction: 0
+  moveDistance: 3

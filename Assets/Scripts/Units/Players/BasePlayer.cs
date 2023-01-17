@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BasePlayer : BaseUnit
 {
+    [SerializeField] public int moveDistance;
     public void ShootBulletAtMouse(BaseCard card)
     {
         Debug.Log("shot triggered");

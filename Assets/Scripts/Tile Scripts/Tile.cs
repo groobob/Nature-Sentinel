@@ -23,14 +23,16 @@ public abstract class Tile : MonoBehaviour
     public float F { get { return G + H; } }
 
     public Tile previous;
-    public Vector3 gridLocation;
+    public Vector2 gridLocation;
 
     //for pathfinding
     public int distance;
+    public PathFinder finder = new PathFinder();
+    public List<Tile> proximityTiles;
 
     public void Awake()
     {
-        gridLocation = (Vector3)transform.position;
+        gridLocation = new Vector2(transform.position.x, transform.position.y);
     }
     public virtual void init(int x, int y)
     {
@@ -68,15 +70,15 @@ public abstract class Tile : MonoBehaviour
                     UnitManager.Instance.SelectedPlayer = null;
                     UnitManager.Instance.SetHasMoved(false);
                     MenuManager.Instance.ShowSelectedPlayer(null);
-                    //placeholder, make show end turn buttom in menu manager
-                    GameManager.Instance.ChangeState(GameState.EnemyTurn);
+                    MenuManager.Instance.ShowEndTurnButton();
                 }
             }
         }
         //move
         else
         {
-            if(UnitManager.Instance.SelectedPlayer != null && walkable && !CardManager.Instance.canShoot && !UnitManager.Instance.hasMoved)
+            proximityTiles = finder.GetProximityTiles(UnitManager.Instance.playerTile, UnitManager.Instance.SelectedPlayer.moveDistance);
+            if (UnitManager.Instance.SelectedPlayer != null && walkable && !CardManager.Instance.canShoot && !UnitManager.Instance.hasMoved && proximityTiles.Contains(this))
             {
                 SetUnit(UnitManager.Instance.SelectedPlayer);
                 UnitManager.Instance.SetSelectedPlayer(null);

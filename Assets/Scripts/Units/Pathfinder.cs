@@ -29,7 +29,7 @@ public class PathFinder
             {
                 if(!neighbour.walkable || closedList.Contains(neighbour))
                 {
-                    continue;
+                    if (!(neighbour.OccupiedUnit != null /* && neighbour.OccupiedUnit.faction == Faction.Player */)) continue;
                 }
 
                 neighbour.G = GetManhattanDistance(start, neighbour);
@@ -60,14 +60,7 @@ public class PathFinder
         {
             currentTile = openList[currentIndex];
 
-            if (currentTile.distance == distance)
-            {
-                foreach (Tile tile in openList)
-                {
-                    openList.Add(tile);
-                }
-                break;
-            }
+            if (currentTile.distance == distance) break;
 
             int newDistance = currentTile.distance + 1;
 

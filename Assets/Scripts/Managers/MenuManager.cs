@@ -7,7 +7,7 @@ public class MenuManager : MonoBehaviour
 {
     public static MenuManager Instance;
 
-    [SerializeField] private GameObject selectedPlayerObject, tileObject, tileUnitObject;
+    [SerializeField] private GameObject selectedPlayerObject, tileObject, tileUnitObject, endTurnButton;
 
     void Awake()
     {
@@ -42,5 +42,16 @@ public class MenuManager : MonoBehaviour
         }
         selectedPlayerObject.GetComponentInChildren<Text>().text = player.UnitName;
         selectedPlayerObject.SetActive(true);
+    }
+
+    public void ShowEndTurnButton()
+    {
+        endTurnButton.SetActive(true);
+    }
+
+    public void EndTurn()
+    {
+        GameManager.Instance.ChangeState(GameState.EnemyTurn);
+        endTurnButton.SetActive(false);
     }
 }
