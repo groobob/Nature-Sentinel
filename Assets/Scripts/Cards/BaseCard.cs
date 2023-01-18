@@ -16,7 +16,7 @@ public class BaseCard : MonoBehaviour
     [SerializeField] public Text rangeText;
 
 
-    private void Awake()
+    private void Start()
     {
         cardBorder.sprite = card.cardImage;
         nameText.text = card.cardName;

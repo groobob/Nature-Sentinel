@@ -18,6 +18,9 @@ public class BasePlayer : BaseUnit
         projectile.GetComponent<BaseAttack>().damage = selectedCard.card.damage;
         projectile.GetComponent<Rigidbody2D>().AddForce(direction * selectedCard.card.speed * 1000);
         projectile.GetComponent<BaseAttack>().direction = direction;
+
+        CardManager.Instance.RemoveCardFromQueue(selectedCard);
+        CardManager.Instance.UpdateNewCardQueue();
         Destroy(projectile, selectedCard.card.range);
         Destroy(selectedCard);
         Destroy(CardManager.Instance.SelectedCard.gameObject);
