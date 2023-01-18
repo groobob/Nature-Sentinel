@@ -5,6 +5,7 @@ using UnityEngine;
 public class BaseAttack : MonoBehaviour
 {
     public int damage;
+    public Vector3 direction;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.GetComponent<BaseEnemy>() != null)
@@ -16,5 +17,10 @@ public class BaseAttack : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void FixedUpdate()
+    {
+        transform.rotation = Quaternion.LookRotation(direction);
     }
 }

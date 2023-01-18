@@ -17,6 +17,7 @@ public class BasePlayer : BaseUnit
         GameObject projectile = Instantiate(selectedCard.card.shotPrefab, transform.position, Quaternion.identity);
         projectile.GetComponent<BaseAttack>().damage = selectedCard.card.damage;
         projectile.GetComponent<Rigidbody2D>().AddForce(direction * selectedCard.card.speed * 1000);
+        projectile.GetComponent<BaseAttack>().direction = direction;
         Destroy(projectile, selectedCard.card.range);
         Destroy(selectedCard);
         Destroy(CardManager.Instance.SelectedCard.gameObject);
