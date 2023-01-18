@@ -10,6 +10,11 @@ public class CardManager : MonoBehaviour
     public BaseCard SelectedCard;
     public bool canShoot = false;
 
+    public Vector3 cardPosition1 = new Vector3(350, -25);
+    public Vector3 cardPosition2 = new Vector3(350, -155);
+    public Vector3 cardPosition3 = new Vector3(260, -155);
+    public Vector3 nextCardPosition = new Vector3(-350, -155);
+
     private void Awake()
     {
         Instance = this;
