@@ -77,13 +77,17 @@ public abstract class Tile : MonoBehaviour
         //move
         else
         {
-            proximityTiles = finder.GetProximityTiles(UnitManager.Instance.playerTile, UnitManager.Instance.SelectedPlayer.moveDistance);
-            if (UnitManager.Instance.SelectedPlayer != null && walkable && !CardManager.Instance.canShoot && !UnitManager.Instance.hasMoved && proximityTiles.Contains(this))
+            if (UnitManager.Instance.SelectedPlayer != null)
             {
-                SetUnit(UnitManager.Instance.SelectedPlayer);
-                UnitManager.Instance.SetSelectedPlayer(null);
-                UnitManager.Instance.SetHasMoved(true);
-                UnitManager.Instance.SetPlayerTile(this);
+                proximityTiles = finder.GetProximityTiles(UnitManager.Instance.playerTile, UnitManager.Instance.SelectedPlayer.moveDistance);
+                if (walkable && !CardManager.Instance.canShoot && !UnitManager.Instance.hasMoved && proximityTiles.Contains(this))
+                {
+                    SetUnit(UnitManager.Instance.SelectedPlayer);
+                    UnitManager.Instance.SetSelectedPlayer(null);
+                    UnitManager.Instance.SetHasMoved(true);
+                    UnitManager.Instance.SetPlayerTile(this);
+                    MenuManager.Instance.ShowEndTurnButton();
+                }
             }
         }
     }

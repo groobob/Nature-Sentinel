@@ -512,6 +512,8 @@ MonoBehaviour:
   SelectedPlayer: {fileID: 0}
   playerTile: {fileID: 0}
   enemies: []
+  enemyCount: 2
+  enemyIncrease: 1
   hasMoved: 0
 --- !u!4 &439844557
 Transform:

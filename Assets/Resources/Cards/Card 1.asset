@@ -12,4 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad234fdb176cc6c48ac9813cf61e274a, type: 3}
   m_Name: Card 1
   m_EditorClassIdentifier: 
-  CardPrefab: {fileID: -2539498122435976006, guid: 61df43aa8289a5f44b62f1b5d5141472, type: 3}
+  CardPrefab: {fileID: 8312080431480981840, guid: 1d7192f137379ff49a74848efa77a6c3, type: 3}
+  cardName: Water Shot
+  description: A basic shot that fires straight towards the enemy.
+  damage: 40
+  range: 3
+  speed: 1
+  shotPrefab: {fileID: 6650421074164701217, guid: daf893c7c2379bb48b9f461a1ed08dd2, type: 3}
+  cardImage: {fileID: 21300000, guid: 4ac67eaf681f6064b84e3a6486a94c6f, type: 3}

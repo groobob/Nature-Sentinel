@@ -10,6 +10,7 @@ public class BaseAttack : MonoBehaviour
         if (collision.gameObject.GetComponent<BaseEnemy>() != null)
         {
             collision.gameObject.GetComponent<BaseEnemy>().TakeDamage(damage);
+            Destroy(gameObject);
         }
         else
         {

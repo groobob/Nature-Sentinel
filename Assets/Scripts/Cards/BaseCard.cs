@@ -24,7 +24,7 @@ public class BaseCard : MonoBehaviour
         damageText.text = card.damage.ToString();
         rangeText.text = card.range.ToString();
     }
-    void OnMouseDown()
+    public void SelectedCard()
     {
         Debug.Log("Clicked");
         if (GameManager.Instance.State != GameState.PlayerTurn) return;
