@@ -15,7 +15,7 @@ public class BaseCard : MonoBehaviour
     [SerializeField] public Text damageText;
     [SerializeField] public Text rangeText;
 
-
+    [SerializeField] public GameObject shotPrefab;
     private void Start()
     {
         cardBorder.sprite = card.cardImage;
@@ -23,15 +23,17 @@ public class BaseCard : MonoBehaviour
         descriptionText.text = card.description;
         damageText.text = card.damage.ToString();
         rangeText.text = card.range.ToString();
+        shotPrefab = card.shotPrefab;
     }
     public void SelectedCard()
     {
         Debug.Log("Clicked");
         if (GameManager.Instance.State != GameState.PlayerTurn) return;
 
-        if (UnitManager.Instance.SelectedPlayer != null)
+        if (UnitManager.Instance.SelectedPlayer != null && !CardManager.Instance.hasShot)
         {
             CardManager.Instance.SetSelectedCard(this);
+            CardManager.Instance.SetCanShoot(true);
         }
     }
 

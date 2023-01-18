@@ -53,5 +53,10 @@ public class MenuManager : MonoBehaviour
     {
         GameManager.Instance.ChangeState(GameState.EnemyTurn);
         endTurnButton.SetActive(false);
+        UnitManager.Instance.SetHasMoved(false);
+        CardManager.Instance.SetCanShoot(true);
+        UnitManager.Instance.SelectedPlayer = null;
+        CardManager.Instance.SelectedCard = null;
+
     }
 }

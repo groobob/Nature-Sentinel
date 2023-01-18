@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CardManager : MonoBehaviour
 {
@@ -10,48 +11,56 @@ public class CardManager : MonoBehaviour
     public List<ScriptableCard> _cards;
     public BaseCard SelectedCard;
     public bool canShoot = false;
+    public bool hasShot = false;
 
     public BaseCard card;
     public Canvas canvas;
     public List<BaseCard> cardQueue = new List<BaseCard>();
-    private Vector3 cardPosition1 = new Vector3(1310, 515);
-    private Vector3 cardPosition2 = new Vector3(1310, 385);
-    private Vector3 cardPosition3 = new Vector3(1220, 385);
-    private Vector3 nextCardPosition = new Vector3(610, 385);
+    private Vector3 cardPosition1 = new Vector3(350, -65);
+    private Vector3 cardPosition2 = new Vector3(350, -195);
+    private Vector3 cardPosition3 = new Vector3(255, -195);
+    private Vector3 nextCardPosition = new Vector3(-350, -195);
 
     private BaseCard generatedCard;
-    public ScriptableCard nextCard;
+
 
     private void Awake()
     {
         Instance = this;
 
         _cards = Resources.LoadAll<ScriptableCard>("cards").ToList();
-        nextCard = GetRandomCard();
-        generatedCard = Instantiate(card, cardPosition1, Quaternion.identity, canvas.transform);
+        generatedCard = Instantiate(card, transform.position, Quaternion.identity, canvas.transform);
+        generatedCard.card = GetRandomCard();
+        generatedCard.transform.localPosition = cardPosition1;
+        cardQueue.Add(generatedCard);
+
+        generatedCard = Instantiate(card, transform.position, Quaternion.identity, canvas.transform);
         generatedCard.card = GetRandomCard();
         cardQueue.Add(generatedCard);
-        generatedCard = Instantiate(card, cardPosition2, Quaternion.identity, canvas.transform);
+        generatedCard.transform.localPosition = cardPosition2;
+
+        generatedCard = Instantiate(card, transform.position, Quaternion.identity, canvas.transform);
         generatedCard.card = GetRandomCard();
         cardQueue.Add(generatedCard);
-        generatedCard = Instantiate(card, cardPosition3, Quaternion.identity, canvas.transform);
+        generatedCard.transform.localPosition = cardPosition3;
+
+        generatedCard = Instantiate(card, transform.position, Quaternion.identity, canvas.transform);
         generatedCard.card = GetRandomCard();
         cardQueue.Add(generatedCard);
-        generatedCard = Instantiate(card, nextCardPosition, Quaternion.identity, canvas.transform);
-        generatedCard.card = GetRandomCard();
-        cardQueue.Add(generatedCard);
+        generatedCard.transform.localPosition = nextCardPosition;
     }
 
     public void UpdateNewCardQueue()
     {
         generatedCard = Instantiate(card, nextCardPosition, Quaternion.identity, canvas.transform);
-        generatedCard.card = nextCard;
+        generatedCard.card = GetRandomCard();
         cardQueue.Add(generatedCard);
-        nextCard = GetRandomCard();
-        cardQueue[0].transform.position = cardPosition1;
-        cardQueue[1].transform.position = cardPosition2;
-        cardQueue[2].transform.position = cardPosition3;
-        cardQueue[3].transform.position = nextCardPosition;
+        generatedCard.transform.localPosition = nextCardPosition;
+
+        cardQueue[0].transform.localPosition = cardPosition1;
+        cardQueue[1].transform.localPosition = cardPosition2;
+        cardQueue[2].transform.localPosition = cardPosition3;
+        cardQueue[3].transform.localPosition = nextCardPosition;
     }
 
     public ScriptableCard GetRandomCard()
@@ -67,5 +76,15 @@ public class CardManager : MonoBehaviour
     {
         SelectedCard = card;
         CardManager.Instance.canShoot = true;
+    }
+
+    public void SetCanShoot(bool inputBool)
+    {
+        canShoot = inputBool;
+    }
+
+    public void SetHasShot(bool inputBool)
+    {
+        hasShot = inputBool;
     }
 }

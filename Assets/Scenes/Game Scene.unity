@@ -745,7 +745,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 319.28476, y: 82.636604}
+  m_AnchoredPosition: {x: 319.28476, y: 34}
   m_SizeDelta: {x: 165.4305, y: 53.2732}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &835684706
@@ -1116,6 +1116,10 @@ MonoBehaviour:
   _cards: []
   SelectedCard: {fileID: 0}
   canShoot: 0
+  card: {fileID: 6803828140883585243, guid: 10a38038ef02f5e43b57b997456857f9, type: 3}
+  canvas: {fileID: 1741157259}
+  cardQueue: []
+  nextCard: {fileID: 0}
 --- !u!1 &1741157256
 GameObject:
   m_ObjectHideFlags: 0

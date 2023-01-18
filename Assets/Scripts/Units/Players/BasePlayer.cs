@@ -14,7 +14,7 @@ public class BasePlayer : BaseUnit
         Vector3 direction = mousePos - transform.position;
         direction.Normalize();
 
-        GameObject projectile = Instantiate(selectedCard.card.shotPrefab, transform.position, Quaternion.identity);
+        GameObject projectile = Instantiate(selectedCard.shotPrefab, transform.position, Quaternion.identity);
         projectile.GetComponent<BaseAttack>().damage = selectedCard.card.damage;
         projectile.GetComponent<Rigidbody2D>().AddForce(direction * selectedCard.card.speed * 1000);
         projectile.GetComponent<BaseAttack>().direction = direction;
@@ -25,6 +25,7 @@ public class BasePlayer : BaseUnit
         Destroy(selectedCard);
         Destroy(CardManager.Instance.SelectedCard.gameObject);
         Debug.Log(CardManager.Instance.SelectedCard);
-        CardManager.Instance.canShoot = false;
+        CardManager.Instance.SetCanShoot(false);
+        CardManager.Instance.SetHasShot(true);
     }
 }

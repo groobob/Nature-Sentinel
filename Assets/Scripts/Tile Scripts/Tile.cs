@@ -68,7 +68,7 @@ public abstract class Tile : MonoBehaviour
                     var enemy = (BaseEnemy)OccupiedUnit;
                     UnitManager.Instance.SelectedPlayer.ShootBulletAtMouse(CardManager.Instance.SelectedCard);
                     UnitManager.Instance.SelectedPlayer = null;
-                    UnitManager.Instance.SetHasMoved(false);
+                    CardManager.Instance.canShoot = false;
                     MenuManager.Instance.ShowSelectedPlayer(null);
                     MenuManager.Instance.ShowEndTurnButton();
                 }
@@ -79,6 +79,7 @@ public abstract class Tile : MonoBehaviour
         {
             if (UnitManager.Instance.SelectedPlayer != null)
             {
+                proximityTiles.Clear();
                 proximityTiles = finder.GetProximityTiles(UnitManager.Instance.playerTile, UnitManager.Instance.SelectedPlayer.moveDistance);
                 if (walkable && !CardManager.Instance.canShoot && !UnitManager.Instance.hasMoved && proximityTiles.Contains(this))
                 {

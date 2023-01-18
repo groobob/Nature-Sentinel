@@ -6,12 +6,11 @@ using UnityEngine;
 
 public class ScriptableCard : ScriptableObject
 {
-    public BaseCard CardPrefab;
+    public GameObject shotPrefab;
+    public Sprite cardImage;
     public string cardName;
     public string description;
     public int damage;
     public int range;
     public int speed;
-    public GameObject shotPrefab;
-    public Sprite cardImage;
 }
