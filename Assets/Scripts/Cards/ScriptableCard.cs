@@ -11,6 +11,6 @@ public class ScriptableCard : ScriptableObject
     public string cardName;
     public string description;
     public int damage;
-    public int range;
+    public float range;
     public int speed;
 }

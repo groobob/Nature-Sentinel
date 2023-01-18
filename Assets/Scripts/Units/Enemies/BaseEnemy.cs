@@ -25,6 +25,10 @@ public class BaseEnemy : BaseUnit
             UnitManager.Instance.enemies.Remove(this);
             Destroy(gameObject);
         }
+        if (UnitManager.Instance.enemies.Count == 0)
+        {
+            GameManager.Instance.ChangeState(GameState.SpawnEnemies);
+        }
     }
 
 }

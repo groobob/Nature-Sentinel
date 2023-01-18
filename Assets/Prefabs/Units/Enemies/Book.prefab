@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7668762949270008556}
   - component: {fileID: 6878475151300404023}
   - component: {fileID: 8656186108240839137}
-  - component: {fileID: 7295829358876860560}
+  - component: {fileID: 471304861509795743}
   m_Layer: 2
   m_Name: Book
   m_TagString: Untagged
@@ -103,8 +103,8 @@ MonoBehaviour:
   faction: 1
   moveRange: 1
   health: 100
---- !u!60 &7295829358876860560
-PolygonCollider2D:
+--- !u!61 &471304861509795743
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -116,23 +116,16 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0031049252, y: -0.066756845}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.375, y: 0.375}
-      - {x: -0.5, y: 0.1875}
-      - {x: -0.5, y: -0.25}
-      - {x: -0.25, y: -0.4375}
-      - {x: 0.25, y: -0.4375}
-      - {x: 0.5, y: -0.25}
-      - {x: 0.5, y: 0.1875}
-      - {x: 0.3125, y: 0.375}
+  serializedVersion: 2
+  m_Size: {x: 0.7453923, y: 0.7547076}
+  m_EdgeRadius: 0

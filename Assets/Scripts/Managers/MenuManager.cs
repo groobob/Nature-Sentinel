@@ -55,6 +55,7 @@ public class MenuManager : MonoBehaviour
         endTurnButton.SetActive(false);
         UnitManager.Instance.SetHasMoved(false);
         CardManager.Instance.SetCanShoot(true);
+        CardManager.Instance.SetHasShot(false);
         UnitManager.Instance.SelectedPlayer = null;
         CardManager.Instance.SelectedCard = null;
 
