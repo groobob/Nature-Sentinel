@@ -6,6 +6,7 @@ public class BaseEnemy : BaseUnit
 {
     [SerializeField] private int moveRange;
     [SerializeField] public int health;
+    [SerializeField] public int score;
     PathFinder finder = new PathFinder();
     private Tile currentTile;
 
@@ -14,7 +15,10 @@ public class BaseEnemy : BaseUnit
     {
         currentTile = GridManager.Instance.tiles[transform.position];
         List<Tile> path = finder.FindPath(currentTile, UnitManager.Instance.playerTile);
-        path[moveRange].SetUnit(this);
+        if(!(path.Count == 0));
+        {
+            path[moveRange].SetUnit(this);
+        }
     }
 
     public void TakeDamage(int damage)
