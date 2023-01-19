@@ -7,7 +7,7 @@ public class MenuManager : MonoBehaviour
 {
     public static MenuManager Instance;
 
-    [SerializeField] private GameObject selectedPlayerObject, tileObject, tileUnitObject;
+    [SerializeField] private GameObject selectedPlayerObject, tileObject, tileUnitObject, selectedCardObject, endTurnButton;
 
     void Awake()
     {
@@ -33,7 +33,7 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    public void ShowSelectedHero(BasePlayer player)
+    public void ShowSelectedPlayer(BasePlayer player)
     {
         if(player == null)
         {
@@ -42,5 +42,34 @@ public class MenuManager : MonoBehaviour
         }
         selectedPlayerObject.GetComponentInChildren<Text>().text = player.UnitName;
         selectedPlayerObject.SetActive(true);
+    }
+
+    public void ShowSelectedCard(BaseCard card)
+    {
+        if(card == null)
+        {
+            selectedCardObject.SetActive(false);
+            return;
+        }
+        selectedCardObject.GetComponentInChildren<Text>().text = card.card.cardName;
+        selectedCardObject.SetActive(true);
+
+    }
+
+    public void ShowEndTurnButton()
+    {
+        endTurnButton.SetActive(true);
+    }
+
+    public void EndTurn()
+    {
+        GameManager.Instance.ChangeState(GameState.EnemyTurn);
+        endTurnButton.SetActive(false);
+        UnitManager.Instance.SetHasMoved(false);
+        CardManager.Instance.SetCanShoot(true);
+        CardManager.Instance.SetHasShot(false);
+        UnitManager.Instance.SelectedPlayer = null;
+        CardManager.Instance.SelectedCard = null;
+
     }
 }

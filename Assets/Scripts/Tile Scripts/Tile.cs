@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 /*
     Class comment
 */
 public abstract class Tile : MonoBehaviour
 {
-    //Reference Variables
     [SerializeField] protected SpriteRenderer spriteRenderer;
     [SerializeField] private GameObject highlight;
     [SerializeField] private bool isWalkable;
@@ -14,20 +14,39 @@ public abstract class Tile : MonoBehaviour
     public string TileName;
 
     public BaseUnit OccupiedUnit;
+    
     public bool walkable => isWalkable && OccupiedUnit == null;
 
+    public float G;
+    public float H;
+
+    public float F { get { return G + H; } }
+
+    public Tile previous;
+    public Vector2 gridLocation;
+
+    //for pathfinding
+    public int distance;
+    public PathFinder finder = new PathFinder();
+    public List<Tile> proximityTiles;
+
+    public void Awake()
+    {
+        gridLocation = new Vector2(transform.position.x, transform.position.y);
+    }
     public virtual void init(int x, int y)
     {
         
     }
+
     void OnMouseEnter()
     {
-        highlight.SetActive(true);
+        if(!highlight.activeInHierarchy) highlight.SetActive(true);
         MenuManager.Instance.ShowTileInfo(this);
     }
     void OnMouseExit()
     {
-        highlight.SetActive(false);
+        if (highlight.activeInHierarchy) highlight.SetActive(false);
         MenuManager.Instance.ShowTileInfo(null);
     }
 
@@ -38,26 +57,38 @@ public abstract class Tile : MonoBehaviour
         //attack
         if(OccupiedUnit != null)
         {
-            if (OccupiedUnit.faction == Faction.Player) UnitManager.Instance.SetSelectedPlayer((BasePlayer)OccupiedUnit);
-            else if (OccupiedUnit.faction == Faction.Enemy)
+            if (OccupiedUnit.faction == Faction.Player)
+            {
+                UnitManager.Instance.SetSelectedPlayer((BasePlayer)OccupiedUnit);
+            }
+            else if (OccupiedUnit.faction == Faction.Enemy && CardManager.Instance.canShoot)
             {
                 if (UnitManager.Instance.SelectedPlayer != null)
                 {
                     var enemy = (BaseEnemy)OccupiedUnit;
-                    //attacking logic (decrease health or kill enemy)
-                    Destroy(enemy.gameObject);
+                    UnitManager.Instance.SelectedPlayer.ShootBulletAtMouse(CardManager.Instance.SelectedCard);
                     UnitManager.Instance.SelectedPlayer = null;
-                    MenuManager.Instance.ShowSelectedHero(null);
+                    CardManager.Instance.canShoot = false;
+                    MenuManager.Instance.ShowSelectedPlayer(null);
+                    MenuManager.Instance.ShowEndTurnButton();
                 }
             }
         }
         //move
         else
         {
-            if(UnitManager.Instance.SelectedPlayer != null && walkable)
+            if (UnitManager.Instance.SelectedPlayer != null)
             {
-                SetUnit(UnitManager.Instance.SelectedPlayer);
-                UnitManager.Instance.SetSelectedPlayer(null);
+                proximityTiles.Clear();
+                proximityTiles = finder.GetProximityTiles(UnitManager.Instance.playerTile, UnitManager.Instance.SelectedPlayer.moveDistance);
+                if (walkable && !UnitManager.Instance.hasMoved && proximityTiles.Contains(this))
+                {
+                    SetUnit(UnitManager.Instance.SelectedPlayer);
+                    UnitManager.Instance.SetSelectedPlayer(null);
+                    UnitManager.Instance.SetHasMoved(true);
+                    UnitManager.Instance.SetPlayerTile(this);
+                    MenuManager.Instance.ShowEndTurnButton();
+                }
             }
         }
     }
