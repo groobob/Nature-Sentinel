@@ -7,7 +7,6 @@ public class BasePlayer : BaseUnit
     [SerializeField] public int moveDistance;
     public void ShootBulletAtMouse(BaseCard selectedCard)
     {
-        Debug.Log("shot triggered");
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = 0;
         mousePos = Camera.main.ScreenToWorldPoint(mousePos);
@@ -24,8 +23,8 @@ public class BasePlayer : BaseUnit
         Destroy(projectile, selectedCard.card.range);
         Destroy(selectedCard);
         Destroy(CardManager.Instance.SelectedCard.gameObject);
-        Debug.Log(CardManager.Instance.SelectedCard);
         CardManager.Instance.SetCanShoot(false);
         CardManager.Instance.SetHasShot(true);
+        MenuManager.Instance.ShowSelectedCard(null);
     }
 }

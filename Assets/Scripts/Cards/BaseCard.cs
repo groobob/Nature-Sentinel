@@ -26,14 +26,14 @@ public class BaseCard : MonoBehaviour
         shotPrefab = card.shotPrefab;
     }
     public void SelectedCard()
-    {
-        Debug.Log("Clicked");
+    { 
         if (GameManager.Instance.State != GameState.PlayerTurn) return;
 
         if (UnitManager.Instance.SelectedPlayer != null && !CardManager.Instance.hasShot)
         {
             CardManager.Instance.SetSelectedCard(this);
             CardManager.Instance.SetCanShoot(true);
+            MenuManager.Instance.ShowSelectedCard(this);
         }
     }
 

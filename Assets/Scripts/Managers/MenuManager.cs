@@ -7,7 +7,7 @@ public class MenuManager : MonoBehaviour
 {
     public static MenuManager Instance;
 
-    [SerializeField] private GameObject selectedPlayerObject, tileObject, tileUnitObject, endTurnButton;
+    [SerializeField] private GameObject selectedPlayerObject, tileObject, tileUnitObject, selectedCardObject, endTurnButton;
 
     void Awake()
     {
@@ -42,6 +42,18 @@ public class MenuManager : MonoBehaviour
         }
         selectedPlayerObject.GetComponentInChildren<Text>().text = player.UnitName;
         selectedPlayerObject.SetActive(true);
+    }
+
+    public void ShowSelectedCard(BaseCard card)
+    {
+        if(card == null)
+        {
+            selectedCardObject.SetActive(false);
+            return;
+        }
+        selectedCardObject.GetComponentInChildren<Text>().text = card.card.cardName;
+        selectedCardObject.SetActive(true);
+
     }
 
     public void ShowEndTurnButton()

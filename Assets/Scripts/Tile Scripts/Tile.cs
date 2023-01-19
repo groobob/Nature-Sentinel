@@ -81,7 +81,7 @@ public abstract class Tile : MonoBehaviour
             {
                 proximityTiles.Clear();
                 proximityTiles = finder.GetProximityTiles(UnitManager.Instance.playerTile, UnitManager.Instance.SelectedPlayer.moveDistance);
-                if (walkable && !CardManager.Instance.canShoot && !UnitManager.Instance.hasMoved && proximityTiles.Contains(this))
+                if (walkable && !UnitManager.Instance.hasMoved && proximityTiles.Contains(this))
                 {
                     SetUnit(UnitManager.Instance.SelectedPlayer);
                     UnitManager.Instance.SetSelectedPlayer(null);

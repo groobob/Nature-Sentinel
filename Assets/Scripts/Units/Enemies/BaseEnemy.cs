@@ -15,9 +15,13 @@ public class BaseEnemy : BaseUnit
     {
         currentTile = GridManager.Instance.tiles[transform.position];
         List<Tile> path = finder.FindPath(currentTile, UnitManager.Instance.playerTile);
-        if(!(path.Count == 0));
+        if(path.Count != 0)
         {
-            path[moveRange].SetUnit(this);
+            if (path[moveRange - 1].OccupiedUnit != null)
+            {
+                if (path[moveRange - 1].OccupiedUnit.faction == Faction.Player) SceneLoader.Instance.LoadGameOverScene();
+            }
+            path[moveRange - 1].SetUnit(this);
         }
     }
 
