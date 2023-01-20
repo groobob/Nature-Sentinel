@@ -12,14 +12,17 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadStartScene()
     {
+        if (MenuManager.GetScore() != 0) MenuManager.SetScore(0);
         SceneManager.LoadScene("Title Scene");
     }
     public void LoadTutorialScene()
     {
+        if(MenuManager.GetScore() != 0) MenuManager.SetScore(0);
         SceneManager.LoadScene("Tutorial Scene");
     }
     public void LoadGameScene()
     {
+        if (MenuManager.GetScore() != 0) MenuManager.SetScore(0);
         SceneManager.LoadScene("Game Scene");
     }
     public void LoadGameOverScene()

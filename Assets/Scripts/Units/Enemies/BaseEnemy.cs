@@ -6,7 +6,7 @@ public class BaseEnemy : BaseUnit
 {
     [SerializeField] private int moveRange;
     [SerializeField] public int health;
-    [SerializeField] public int score;
+    [SerializeField] public int scoreReward;
     PathFinder finder = new PathFinder();
     private Tile currentTile;
 
@@ -30,6 +30,7 @@ public class BaseEnemy : BaseUnit
         health -= damage;
         if (health <= 0)
         {
+            MenuManager.Instance.AddScore(scoreReward);
             UnitManager.Instance.enemies.Remove(this);
             Destroy(gameObject);
         }

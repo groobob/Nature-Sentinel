@@ -8,6 +8,7 @@ public class MenuManager : MonoBehaviour
     public static MenuManager Instance;
 
     [SerializeField] private GameObject selectedPlayerObject, tileObject, tileUnitObject, selectedCardObject, endTurnButton;
+    public static int score = 0;
 
     void Awake()
     {
@@ -71,5 +72,19 @@ public class MenuManager : MonoBehaviour
         UnitManager.Instance.SelectedPlayer = null;
         CardManager.Instance.SelectedCard = null;
 
+    }
+
+    public void AddScore(int n)
+    {
+        score += n;
+    }
+
+    public static void SetScore(int n)
+    {
+        score = n;
+    }
+    public static int GetScore()
+    {
+        return score;
     }
 }
