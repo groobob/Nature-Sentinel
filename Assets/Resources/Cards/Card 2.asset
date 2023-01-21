@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad234fdb176cc6c48ac9813cf61e274a, type: 3}
-  m_Name: Card 1
+  m_Name: Card 2
   m_EditorClassIdentifier: 
-  shotPrefab: {fileID: 6650421074164701217, guid: daf893c7c2379bb48b9f461a1ed08dd2, type: 3}
-  cardImage: {fileID: 21300000, guid: 7b346d299626a474c941193352bcb791, type: 3}
-  cardName: Earth Shot
-  description: Short-ranged high power shot, passes through trees.
-  damage: 60
-  range: 1
-  speed: 1
+  shotPrefab: {fileID: 5078964223204880751, guid: e03e04e2263f2904b86eeca22ec74fa3, type: 3}
+  cardImage: {fileID: 21300000, guid: 3f0e0f4cdcd6044498f0569e04a3a873, type: 3}
+  cardName: Flame Shot
+  description: A mid-ranged and damage shot that destroys trees permanently
+  damage: 40
+  range: 2
+  speed: 7

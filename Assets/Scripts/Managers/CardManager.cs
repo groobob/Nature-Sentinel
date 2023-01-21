@@ -75,7 +75,7 @@ public class CardManager : MonoBehaviour
     public void SetSelectedCard(BaseCard card)
     {
         SelectedCard = card;
-        CardManager.Instance.canShoot = true;
+        if(SelectedCard != null) canShoot = true;
     }
 
     public void SetCanShoot(bool inputBool)
