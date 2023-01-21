@@ -103,7 +103,7 @@ MonoBehaviour:
   faction: 1
   moveRange: 1
   health: 200
-  scoreReward: 0
+  scoreReward: 300
 --- !u!61 &471304861509795743
 BoxCollider2D:
   m_ObjectHideFlags: 0

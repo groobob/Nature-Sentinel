@@ -27,6 +27,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shot1
       objectReference: {fileID: 0}
+    - target: {fileID: 2397949806552308508, guid: 61749b80ddb17e143a790237cc078fe1, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 6592613755562694528, guid: 61749b80ddb17e143a790237cc078fe1, type: 3}
       propertyPath: m_Sprite
       value: 
