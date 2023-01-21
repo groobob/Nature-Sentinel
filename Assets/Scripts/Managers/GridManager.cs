@@ -43,12 +43,12 @@ public class GridManager : MonoBehaviour
     
     public Tile GetPlayerSpawnTile()
     {
-        return tiles.Where(t => t.Key.y < height / 3 && t.Value.walkable).OrderBy(tag => Random.value).First().Value;
+        return tiles.Where(t => t.Key.y < height && t.Value.walkable).OrderBy(tag => Random.value).First().Value;
     }
 
     public Tile GetEnemySpawnTile()
     {
-        return tiles.Where(t => t.Key.y > (height - 1.5) && t.Value.walkable).OrderBy(tag => Random.value).First().Value;
+        return tiles.Where(t => t.Key.y < height && t.Value.walkable).OrderBy(tag => Random.value).First().Value;
     }
 
     public Tile GetTileAtPosition(Vector2 pos)
