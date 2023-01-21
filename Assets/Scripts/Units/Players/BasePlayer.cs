@@ -15,8 +15,9 @@ public class BasePlayer : BaseUnit
 
         GameObject projectile = Instantiate(selectedCard.shotPrefab, transform.position, Quaternion.identity);
         projectile.GetComponent<BaseAttack>().damage = selectedCard.card.damage;
-        projectile.GetComponent<Rigidbody2D>().AddForce(direction * selectedCard.card.speed * 100);
         projectile.GetComponent<BaseAttack>().direction = direction;
+        projectile.GetComponent<BaseAttack>().deathParticle = selectedCard.card.deathParticle;
+        projectile.GetComponent<Rigidbody2D>().AddForce(direction * selectedCard.card.speed * 100);
 
         CardManager.Instance.RemoveCardFromQueue(selectedCard);
         CardManager.Instance.UpdateNewCardQueue();

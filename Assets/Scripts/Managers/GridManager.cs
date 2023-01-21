@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-/*
-    Class Comment
-*/
+
 public class GridManager : MonoBehaviour
 {
     public static GridManager Instance;
     [SerializeField] private int width, height;
-    [SerializeField] private Tile grassTile, mountainTile;
+    [SerializeField] private Tile grassTile, treeTile;
     [SerializeField] private Transform transformCamera;
     public Dictionary<Vector2, Tile> tiles;
 
@@ -25,7 +23,7 @@ public class GridManager : MonoBehaviour
         {
             for(int y = 0; y < height; y++)
             {
-                var randomTile = Random.Range(0, 8) == 3 ? mountainTile : grassTile;
+                var randomTile = Random.Range(0, 5) == 3 ? treeTile : grassTile;
                 var spawnedTile = Instantiate(randomTile, new Vector3(x, y), Quaternion.identity);
                 spawnedTile.name = $"tile {x} {y}";
                 spawnedTile.GetComponent<Tile>().gridLocation = new Vector3(x, y);

@@ -7,6 +7,7 @@ using UnityEngine;
 public class ScriptableCard : ScriptableObject
 {
     public GameObject shotPrefab;
+    public GameObject deathParticle;
     public Sprite cardImage;
     public string cardName;
     public string description;

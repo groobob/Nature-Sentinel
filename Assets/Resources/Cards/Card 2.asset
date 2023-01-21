@@ -18,4 +18,4 @@ MonoBehaviour:
   description: A mid-ranged and damage shot that destroys trees permanently
   damage: 40
   range: 2
-  speed: 7
+  speed: 3
