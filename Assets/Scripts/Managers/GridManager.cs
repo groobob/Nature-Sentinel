@@ -7,7 +7,7 @@ public class GridManager : MonoBehaviour
 {
     public static GridManager Instance;
     [SerializeField] private int width, height;
-    [SerializeField] private Tile grassTile, treeTile;
+    [SerializeField] private Tile grassTile, treeTile, deadTile;
     [SerializeField] private Transform transformCamera;
     public Dictionary<Vector2, Tile> tiles;
 
@@ -53,5 +53,10 @@ public class GridManager : MonoBehaviour
     {
         if(tiles.TryGetValue(pos, out var tile)) return tile;
         return null;
+    }
+
+    public Tile GetDeadTile()
+    {
+        return deadTile;
     }
 }

@@ -86,8 +86,14 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1877545919309803422}
   highlight: {fileID: 1885918348031387096}
   isWalkable: 0
-  TileName: Dead Tile
+  TileName: Destroyed
   OccupiedUnit: {fileID: 0}
+  G: 0
+  H: 0
+  previous: {fileID: 0}
+  gridLocation: {x: 0, y: 0}
+  distance: 0
+  proximityTiles: []
   baseColor: {r: 0.20572266, g: 0.6320754, b: 0.28610072, a: 0}
   offsetColor: {r: 0.14177644, g: 0.509434, b: 0.18960176, a: 0}
 --- !u!212 &1877545919309803422 stripped

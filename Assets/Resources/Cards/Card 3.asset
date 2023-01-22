@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Card 3
   m_EditorClassIdentifier: 
   shotPrefab: {fileID: 2431703433626418047, guid: 00016af89305aaf4dbb2fb8cb94b94a9, type: 3}
+  deathParticle: {fileID: 8717766716874073761, guid: 4277e6d9e80c09744a75382cf8863151, type: 3}
   cardImage: {fileID: 21300000, guid: bb4077134ccdfa34a898923d2d3efd96, type: 3}
   cardName: Water Shot
   description: A basic long-ranged shot that does very weak damage.

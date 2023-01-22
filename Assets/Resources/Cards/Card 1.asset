@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Card 1
   m_EditorClassIdentifier: 
   shotPrefab: {fileID: 6650421074164701217, guid: daf893c7c2379bb48b9f461a1ed08dd2, type: 3}
+  deathParticle: {fileID: 5210486927442822211, guid: a7c9d8cd3626899468bedb3a83cffbbd, type: 3}
   cardImage: {fileID: 21300000, guid: 7b346d299626a474c941193352bcb791, type: 3}
   cardName: Earth Shot
   description: Short-ranged high power shot, passes through trees.

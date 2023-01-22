@@ -7,7 +7,7 @@ public class BaseAttack : MonoBehaviour
     public int damage;
     public Vector2 direction;
     public GameObject deathParticle;
-    public void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         Instantiate(deathParticle, transform.position, Quaternion.identity);
         if (collision.gameObject.GetComponent<BaseEnemy>() != null)

@@ -1623,7 +1623,8 @@ MonoBehaviour:
   width: 8
   height: 10
   grassTile: {fileID: -820684195404979304, guid: 170b78dbadee3054e817450e09e17b48, type: 3}
-  mountainTile: {fileID: 7030728690632238192, guid: 71dc0632122a0694882d2c309bafd297, type: 3}
+  treeTile: {fileID: 7030728690632238192, guid: 71dc0632122a0694882d2c309bafd297, type: 3}
+  deadTile: {fileID: 3146371089736198800, guid: 391afb32456e42944ad7ee4569c36f8f, type: 3}
   transformCamera: {fileID: 519420032}
 --- !u!4 &1985704804
 Transform:
