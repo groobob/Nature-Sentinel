@@ -953,8 +953,9 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Click on your character and a card to select it, then click on an enemy
-    to fire the described projectile at them. Each enemy is a little different from
-    each other and you can also only attack once per turn.
+    to fire the described projectile at them. The left number is the damage and the
+    right is the range. Each enemy is a little different from each other and you
+    can also only attack once per turn.
 --- !u!222 &1852086739
 CanvasRenderer:
   m_ObjectHideFlags: 0
