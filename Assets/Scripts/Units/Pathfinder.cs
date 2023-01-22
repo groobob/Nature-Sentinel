@@ -66,7 +66,7 @@ public class PathFinder
 
             foreach (Tile tile in GetNeighbourTiles(currentTile))
             {
-                if (!openList.Contains(tile))
+                if (!openList.Contains(tile) && tile.walkable)
                 {
                     openList.Add(tile);
                     tile.distance = newDistance;

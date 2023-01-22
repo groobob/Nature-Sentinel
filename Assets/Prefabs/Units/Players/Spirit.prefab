@@ -101,7 +101,7 @@ MonoBehaviour:
   UnitName: Spirit (Player)
   occupiedTile: {fileID: 0}
   faction: 0
-  moveDistance: 3
+  moveDistance: 2
 --- !u!1 &5686778924059693831
 GameObject:
   m_ObjectHideFlags: 0

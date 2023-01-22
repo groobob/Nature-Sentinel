@@ -9,6 +9,7 @@ public abstract class Tile : MonoBehaviour
 {
     [SerializeField] protected SpriteRenderer spriteRenderer;
     [SerializeField] private GameObject highlight;
+    [SerializeField] private GameObject movementHighlight;
     [SerializeField] private bool isWalkable;
 
     public string TileName;
@@ -28,7 +29,7 @@ public abstract class Tile : MonoBehaviour
     //for pathfinding
     public int distance;
     public PathFinder finder = new PathFinder();
-    public List<Tile> proximityTiles;
+    public static List<Tile> proximityTiles;
 
     public void Awake()
     {
@@ -54,41 +55,52 @@ public abstract class Tile : MonoBehaviour
     {
         if (GameManager.Instance.State != GameState.PlayerTurn) return;
 
-        //attack
         if(OccupiedUnit != null)
         {
+            //select
             if (OccupiedUnit.faction == Faction.Player)
             {
                 UnitManager.Instance.SetSelectedPlayer((BasePlayer)OccupiedUnit);
-            }
-            else if (OccupiedUnit.faction == Faction.Enemy && CardManager.Instance.canShoot)
-            {
-                if (UnitManager.Instance.SelectedPlayer != null)
+                if (!UnitManager.Instance.hasMoved)
                 {
-                    var enemy = (BaseEnemy)OccupiedUnit;
-                    UnitManager.Instance.SelectedPlayer.ShootBulletAtMouse(CardManager.Instance.SelectedCard);
-                    UnitManager.Instance.SelectedPlayer = null;
-                    CardManager.Instance.canShoot = false;
-                    MenuManager.Instance.ShowSelectedPlayer(null);
-                    MenuManager.Instance.ShowEndTurnButton();
+                    proximityTiles = finder.GetProximityTiles(UnitManager.Instance.playerTile, UnitManager.Instance.SelectedPlayer.moveDistance);
+                    foreach (Tile tile in proximityTiles) 
+                    { 
+                        tile.movementHighlight.SetActive(true);
+                    }
                 }
+            }
+            //attack
+            else if (OccupiedUnit.faction == Faction.Enemy && CardManager.Instance.canShoot && UnitManager.Instance.SelectedPlayer != null)
+            {
+                var enemy = (BaseEnemy)OccupiedUnit;
+                UnitManager.Instance.SelectedPlayer.ShootBulletAtMouse(CardManager.Instance.SelectedCard);
+                UnitManager.Instance.SelectedPlayer = null;
+                CardManager.Instance.canShoot = false;
+                MenuManager.Instance.ShowSelectedPlayer(null);
+                MenuManager.Instance.ShowEndTurnButton();
+                foreach (Tile tile in proximityTiles)
+                {
+                    tile.movementHighlight.SetActive(false);
+                }
+                proximityTiles.Clear();
             }
         }
         //move
         else
         {
-            if (UnitManager.Instance.SelectedPlayer != null)
+            if (UnitManager.Instance.SelectedPlayer != null && walkable && !UnitManager.Instance.hasMoved && proximityTiles.Contains(this))
             {
-                proximityTiles.Clear();
-                proximityTiles = finder.GetProximityTiles(UnitManager.Instance.playerTile, UnitManager.Instance.SelectedPlayer.moveDistance);
-                if (walkable && !UnitManager.Instance.hasMoved && proximityTiles.Contains(this))
+                SetUnit(UnitManager.Instance.SelectedPlayer);
+                UnitManager.Instance.SetSelectedPlayer(null);
+                UnitManager.Instance.SetHasMoved(true);
+                UnitManager.Instance.SetPlayerTile(this);
+                MenuManager.Instance.ShowEndTurnButton();
+                foreach (Tile tile in proximityTiles)
                 {
-                    SetUnit(UnitManager.Instance.SelectedPlayer);
-                    UnitManager.Instance.SetSelectedPlayer(null);
-                    UnitManager.Instance.SetHasMoved(true);
-                    UnitManager.Instance.SetPlayerTile(this);
-                    MenuManager.Instance.ShowEndTurnButton();
+                    tile.movementHighlight.SetActive(false);
                 }
+                proximityTiles.Clear();
             }
         }
     }
