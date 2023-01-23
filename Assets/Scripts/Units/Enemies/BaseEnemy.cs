@@ -15,14 +15,25 @@ public class BaseEnemy : BaseUnit
     {
         currentTile = GridManager.Instance.tiles[transform.position];
         List<Tile> path = finder.FindPath(currentTile, UnitManager.Instance.playerTile);
-        if(path.Count != 0)
+        if (path.Count > 0)
         {
-            if (path[moveRange - 1].OccupiedUnit != null)
+            if (path.Count >= moveRange)
             {
-                if (path[moveRange - 1].OccupiedUnit.faction == Faction.Player) SceneLoader.Instance.LoadGameOverScene();
+                if (path[moveRange - 1].OccupiedUnit != null)
+                {
+                    if (path[moveRange - 1].OccupiedUnit.faction == Faction.Player) SceneLoader.Instance.LoadGameOverScene();
+                }
+                path[moveRange - 1].SetUnit(this);
             }
-            path[moveRange - 1].SetUnit(this);
-        }
+            else
+            {
+                if (path[0].OccupiedUnit != null)
+                {
+                    if (path[0].OccupiedUnit.faction == Faction.Player) SceneLoader.Instance.LoadGameOverScene();
+                }
+                path[0].SetUnit(this);
+            }
+        }  
     }
 
     public void TakeDamage(int damage)

@@ -29,7 +29,7 @@ public class PathFinder
             {
                 if(!neighbour.walkable || closedList.Contains(neighbour))
                 {
-                    if (!(neighbour.OccupiedUnit != null /* && neighbour.OccupiedUnit.faction == Faction.Player */)) continue;
+                    if (!(neighbour.OccupiedUnit != null && neighbour.OccupiedUnit.faction == Faction.Player)) continue;
                 }
 
                 neighbour.G = GetManhattanDistance(start, neighbour);
