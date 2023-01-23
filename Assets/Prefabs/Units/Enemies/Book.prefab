@@ -103,8 +103,8 @@ MonoBehaviour:
   occupiedTile: {fileID: 0}
   faction: 1
   moveRange: 1
-  health: 150
-  scoreReward: 300
+  health: 100
+  scoreReward: 200
 --- !u!61 &471304861509795743
 BoxCollider2D:
   m_ObjectHideFlags: 0

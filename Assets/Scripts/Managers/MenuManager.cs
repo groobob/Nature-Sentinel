@@ -70,6 +70,11 @@ public class MenuManager : MonoBehaviour
         CardManager.Instance.SetHasShot(false);
         CardManager.Instance.SetSelectedCard(null);
         endTurnButton.SetActive(false);
+        foreach (Tile tile in Tile.proximityTiles)
+        {
+            tile.movementHighlight.SetActive(false);
+        }
+        Tile.proximityTiles.Clear();
         StartCoroutine(Coroutine());
     }
     IEnumerator Coroutine()

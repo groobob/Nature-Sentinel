@@ -9,7 +9,7 @@ public abstract class Tile : MonoBehaviour
 {
     [SerializeField] protected SpriteRenderer spriteRenderer;
     [SerializeField] private GameObject highlight;
-    [SerializeField] private GameObject movementHighlight;
+    [SerializeField] public GameObject movementHighlight;
     [SerializeField] private bool isWalkable;
 
     public string TileName;
