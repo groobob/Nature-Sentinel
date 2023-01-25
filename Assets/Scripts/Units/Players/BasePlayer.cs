@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Stores information for the player to use
+ * Handles the shooting of the projectile from cards
+ */
+
 public class BasePlayer : BaseUnit
 {
     [SerializeField] public int moveDistance;
@@ -15,8 +20,9 @@ public class BasePlayer : BaseUnit
 
         GameObject projectile = Instantiate(selectedCard.shotPrefab, transform.position, Quaternion.identity);
         projectile.GetComponent<BaseAttack>().damage = selectedCard.card.damage;
-        projectile.GetComponent<Rigidbody2D>().AddForce(direction * selectedCard.card.speed * 100);
         projectile.GetComponent<BaseAttack>().direction = direction;
+        projectile.GetComponent<BaseAttack>().deathParticle = selectedCard.card.deathParticle;
+        projectile.GetComponent<Rigidbody2D>().AddForce(direction * selectedCard.card.speed * 100);
 
         CardManager.Instance.RemoveCardFromQueue(selectedCard);
         CardManager.Instance.UpdateNewCardQueue();

@@ -4,6 +4,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+ * The parent class for all inherited members to derive from
+ * Houses information for card and attack statistics
+ */
+
 public class BaseCard : MonoBehaviour
 {
     [SerializeField] public ScriptableCard card;
@@ -16,6 +21,8 @@ public class BaseCard : MonoBehaviour
     [SerializeField] public Text rangeText;
 
     [SerializeField] public GameObject shotPrefab;
+
+    // Set scriptable object data to the objects 
     private void Start()
     {
         cardBorder.sprite = card.cardImage;
@@ -25,6 +32,8 @@ public class BaseCard : MonoBehaviour
         rangeText.text = card.range.ToString();
         shotPrefab = card.shotPrefab;
     }
+
+    // Code that runs on selection of any card
     public void SelectedCard()
     { 
         if (GameManager.Instance.State != GameState.PlayerTurn) return;

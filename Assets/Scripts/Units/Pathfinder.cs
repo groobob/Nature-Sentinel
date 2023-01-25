@@ -4,8 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/*
+ * A* Pathfinding algorithm applied for this projects grid
+ */
+
 public class PathFinder
 {
+    // Finds and returns a list of tiles that are the path from the specified start to end location
     public List<Tile> FindPath(Tile start, Tile end)
     {
         List<Tile> openList = new List<Tile>();
@@ -29,7 +34,7 @@ public class PathFinder
             {
                 if(!neighbour.walkable || closedList.Contains(neighbour))
                 {
-                    if (!(neighbour.OccupiedUnit != null /* && neighbour.OccupiedUnit.faction == Faction.Player */)) continue;
+                    if (!(neighbour.OccupiedUnit != null && neighbour.OccupiedUnit.faction == Faction.Player)) continue;
                 }
 
                 neighbour.G = GetManhattanDistance(start, neighbour);
@@ -46,6 +51,7 @@ public class PathFinder
         return new List<Tile>();
     }
 
+    // Gets the accessable tiles from a start point to a specified distance
     public List<Tile> GetProximityTiles(Tile start, int distance)
     {
         List<Tile> openList = new List<Tile>();
@@ -66,7 +72,7 @@ public class PathFinder
 
             foreach (Tile tile in GetNeighbourTiles(currentTile))
             {
-                if (!openList.Contains(tile))
+                if (!openList.Contains(tile) && tile.walkable)
                 {
                     openList.Add(tile);
                     tile.distance = newDistance;
@@ -78,6 +84,7 @@ public class PathFinder
         return openList;
     }
 
+    // Returns a finished list of tiles as the path from a specified start to end from using the information from "FindPath()"
     private List<Tile> GetFinishedList(Tile start, Tile end)
     {
         List<Tile> finishedList = new List<Tile>();
@@ -95,18 +102,20 @@ public class PathFinder
         return finishedList;
     }
 
+    // Returns the cardinal distance from one tile to another
     private float GetManhattanDistance(Tile start, Tile neighbour)
     {
         return Mathf.Abs(start.gridLocation.x - neighbour.gridLocation.x) + Mathf.Abs(start.gridLocation.y - neighbour.gridLocation.y);
     }
 
+    // Returns all of the touching tiles next to the specified tile
     private List<Tile> GetNeighbourTiles(Tile currentTile) 
     {
         var map = GridManager.Instance.tiles;
 
         List<Tile> neighbours = new List<Tile>();
 
-        //top tile
+        // Top tile
         Vector2 locationToCheck = new Vector2(currentTile.gridLocation.x, currentTile.gridLocation.y + 1);
 
         if (map.ContainsKey(locationToCheck))
@@ -114,7 +123,7 @@ public class PathFinder
             neighbours.Add(map[locationToCheck]);
         }
 
-        //left tile
+        // Left tile
         locationToCheck = new Vector2(currentTile.gridLocation.x - 1, currentTile.gridLocation.y);
 
         if (map.ContainsKey(locationToCheck))
@@ -122,7 +131,7 @@ public class PathFinder
             neighbours.Add(map[locationToCheck]);
         }
 
-        //right tile
+        // Right tile
         locationToCheck = new Vector2(currentTile.gridLocation.x + 1, currentTile.gridLocation.y);
 
         if (map.ContainsKey(locationToCheck))
@@ -130,7 +139,7 @@ public class PathFinder
             neighbours.Add(map[locationToCheck]);
         }
 
-        //bottom tile
+        // Bottom tile
         locationToCheck = new Vector2(currentTile.gridLocation.x, currentTile.gridLocation.y - 1);
 
         if (map.ContainsKey(locationToCheck))

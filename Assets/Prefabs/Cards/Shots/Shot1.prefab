@@ -7,21 +7,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 904344720129581501, guid: 61749b80ddb17e143a790237cc078fe1, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 904344720129581501, guid: 61749b80ddb17e143a790237cc078fe1, type: 3}
+      propertyPath: m_Size.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 904344720129581501, guid: 61749b80ddb17e143a790237cc078fe1, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 904344720129581501, guid: 61749b80ddb17e143a790237cc078fe1, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2397949806552308508, guid: 61749b80ddb17e143a790237cc078fe1, type: 3}
       propertyPath: m_Name
       value: Shot1
       objectReference: {fileID: 0}
+    - target: {fileID: 2397949806552308508, guid: 61749b80ddb17e143a790237cc078fe1, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592613755562694528, guid: 61749b80ddb17e143a790237cc078fe1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 15cc159144eb67b4788808e1da928b24, type: 3}
     - target: {fileID: 8265354723343149976, guid: 61749b80ddb17e143a790237cc078fe1, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8265354723343149976, guid: 61749b80ddb17e143a790237cc078fe1, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8265354723343149976, guid: 61749b80ddb17e143a790237cc078fe1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8265354723343149976, guid: 61749b80ddb17e143a790237cc078fe1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -83,3 +107,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
+  direction: {x: 0, y: 0}

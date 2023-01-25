@@ -55,6 +55,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2481858042708862313, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.07725169
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481858042708862313, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5283019
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481858042708862313, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.10458804
+      objectReference: {fileID: 0}
     - target: {fileID: 2481858042708862318, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
       propertyPath: m_Name
       value: Dead Tile
@@ -66,6 +78,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 6122366497772169149, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
+--- !u!1 &32546944232480723 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4038769990997513508, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
+  m_PrefabInstance: {fileID: 4071032706625587959}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1877545919309803417 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2481858042708862318, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
@@ -85,11 +102,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1877545919309803422}
   highlight: {fileID: 1885918348031387096}
+  movementHighlight: {fileID: 32546944232480723}
   isWalkable: 0
-  TileName: Dead Tile
+  TileName: Destroyed
   OccupiedUnit: {fileID: 0}
-  baseColor: {r: 0.20572266, g: 0.6320754, b: 0.28610072, a: 0}
-  offsetColor: {r: 0.14177644, g: 0.509434, b: 0.18960176, a: 0}
+  G: 0
+  H: 0
+  previous: {fileID: 0}
+  gridLocation: {x: 0, y: 0}
+  distance: 0
 --- !u!212 &1877545919309803422 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 2481858042708862313, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}

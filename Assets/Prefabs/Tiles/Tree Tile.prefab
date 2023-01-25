@@ -69,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2481858042708862318, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
       propertyPath: m_Name
-      value: Mountain Tile
+      value: Tree Tile
       objectReference: {fileID: 0}
     - target: {fileID: 2481858042708862318, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
       propertyPath: m_Layer
@@ -101,11 +101,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 3131979877936045903}
   highlight: {fileID: 3122478559741875465}
+  movementHighlight: {fileID: 3533852705443098370}
   isWalkable: 0
-  TileName: Mountains
+  TileName: Trees
   OccupiedUnit: {fileID: 0}
+  G: 0
+  H: 0
+  previous: {fileID: 0}
+  gridLocation: {x: 0, y: 0}
+  distance: 0
+  proximityTiles: []
 --- !u!212 &3131979877936045903 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 2481858042708862313, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
+  m_PrefabInstance: {fileID: 650299174781663782}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3533852705443098370 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4038769990997513508, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
   m_PrefabInstance: {fileID: 650299174781663782}
   m_PrefabAsset: {fileID: 0}

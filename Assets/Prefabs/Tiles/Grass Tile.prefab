@@ -89,13 +89,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 4678256827233766061}
   highlight: {fileID: 4669884691374670059}
+  movementHighlight: {fileID: 6526070561462893280}
   isWalkable: 1
   TileName: Grass
   OccupiedUnit: {fileID: 0}
+  G: 0
+  H: 0
+  previous: {fileID: 0}
+  gridLocation: {x: 0, y: 0}
+  distance: 0
+  proximityTiles: []
   baseColor: {r: 0.4672481, g: 0.9433962, b: 0.5549596, a: 1}
   offsetColor: {r: 0.40574938, g: 0.8867924, b: 0.4656888, a: 1}
 --- !u!212 &4678256827233766061 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 2481858042708862313, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
+  m_PrefabInstance: {fileID: 7106070471754067908}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6526070561462893280 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4038769990997513508, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
   m_PrefabInstance: {fileID: 7106070471754067908}
   m_PrefabAsset: {fileID: 0}
