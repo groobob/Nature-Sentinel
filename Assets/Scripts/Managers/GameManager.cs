@@ -4,21 +4,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 
+/*
+ * Manages the state of the game
+ * Tells game what to run/do whenever state of the game is changed
+ */
+
 public class GameManager : MonoBehaviour
 {
+
     public static GameManager Instance;
     public GameState State;
 
+    // Singleton
     void Awake()
     {
         Instance = this;
     }
 
+    // Sets the first state to "GenerateGrid"
     private void Start()
     {
         ChangeState(GameState.GenerateGrid);
     }
 
+    // Changes game state to the given state
     public void ChangeState(GameState newState)
     {
         State = newState;
@@ -47,13 +56,9 @@ public class GameManager : MonoBehaviour
                 throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
         }
     }
-
-    public void HandleSelectColor()
-    {
-        
-    }
 }
 
+// Enum to handle the game state data
 public enum GameState
 {
     GenerateGrid = 0,

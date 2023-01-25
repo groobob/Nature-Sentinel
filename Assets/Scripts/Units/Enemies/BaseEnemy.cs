@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Handles all the behaviour for all enemies
+ * Also stores the common statistics for each enemy
+ */
+
 public class BaseEnemy : BaseUnit
 {
     [SerializeField] private int moveRange;
@@ -10,7 +15,7 @@ public class BaseEnemy : BaseUnit
     PathFinder finder = new PathFinder();
     private Tile currentTile;
 
-
+    // Moves the enemy closer to the player by a predetermined amount of spaces
     public void Move()
     {
         currentTile = GridManager.Instance.tiles[transform.position];
@@ -36,6 +41,7 @@ public class BaseEnemy : BaseUnit
         }  
     }
 
+    // Makes the enemy take a specified amount of damage
     public void TakeDamage(int damage)
     {
         health -= damage;

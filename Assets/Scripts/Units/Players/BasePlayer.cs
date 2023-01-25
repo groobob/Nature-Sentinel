@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Stores information for the player to use
+ * Handles the shooting of the projectile from cards
+ */
+
 public class BasePlayer : BaseUnit
 {
     [SerializeField] public int moveDistance;

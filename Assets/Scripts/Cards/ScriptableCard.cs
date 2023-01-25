@@ -4,6 +4,10 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Card", menuName = "Scriptable Card")]
 
+/*
+ * Created to store various data for all instances of cards to derive from
+ */
+
 public class ScriptableCard : ScriptableObject
 {
     public GameObject shotPrefab;

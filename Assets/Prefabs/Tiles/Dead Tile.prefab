@@ -55,6 +55,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2481858042708862313, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.07725169
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481858042708862313, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5283019
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481858042708862313, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.10458804
+      objectReference: {fileID: 0}
     - target: {fileID: 2481858042708862318, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}
       propertyPath: m_Name
       value: Dead Tile
@@ -99,9 +111,6 @@ MonoBehaviour:
   previous: {fileID: 0}
   gridLocation: {x: 0, y: 0}
   distance: 0
-  proximityTiles: []
-  baseColor: {r: 0.20572266, g: 0.6320754, b: 0.28610072, a: 0}
-  offsetColor: {r: 0.14177644, g: 0.509434, b: 0.18960176, a: 0}
 --- !u!212 &1877545919309803422 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 2481858042708862313, guid: 0fa943417d9b4444b9efa6402ec7c95c, type: 3}

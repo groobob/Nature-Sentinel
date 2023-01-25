@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/*
+ * Manages the grid and its generation behaviour
+ * Also gives information about enemy/player spawn locations
+ */
+
 public class GridManager : MonoBehaviour
 {
     public static GridManager Instance;
@@ -11,11 +16,13 @@ public class GridManager : MonoBehaviour
     [SerializeField] private Transform transformCamera;
     public Dictionary<Vector2, Tile> tiles;
 
+    // Singleton
     private void Awake()
     {
         Instance = this;
     }
 
+    // Generates the grid with specified x and y when called, also sets the camera position to the middle of the grid
     public void GenerateGrid()
     {
         tiles = new Dictionary<Vector2, Tile>();
@@ -39,22 +46,26 @@ public class GridManager : MonoBehaviour
         GameManager.Instance.ChangeState(GameState.SpawnPlayers);
     }
     
+    // Returns a random possible location for the player
     public Tile GetPlayerSpawnTile()
     {
         return tiles.Where(t => t.Key.y < height && t.Value.walkable).OrderBy(tag => Random.value).First().Value;
     }
 
+    // Returns a random possible location for the enemy
     public Tile GetEnemySpawnTile()
     {
         return tiles.Where(t => t.Key.y < height && t.Value.walkable).OrderBy(tag => Random.value).First().Value;
     }
 
+    // Returns a tile object at a given location
     public Tile GetTileAtPosition(Vector2 pos)
     {
         if(tiles.TryGetValue(pos, out var tile)) return tile;
         return null;
     }
 
+    // Returns a prefab of a dead tile object
     public Tile GetDeadTile()
     {
         return deadTile;

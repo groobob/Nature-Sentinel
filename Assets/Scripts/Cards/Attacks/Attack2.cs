@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Child script for the second attack for any extra special functionality unique to this attack
+ */
+
 public class Attack2 : BaseAttack
 {
     protected override void OnCollisionEnter2D(Collision2D collision)
