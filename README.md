@@ -1,5 +1,5 @@
-# Final ~~Greenfoot~~ Unity Project
- Final project for ICS3U1.
+# Nature Sentinel
+A final probject made for ICS3U1
 
 <*PLAY IT HERE*>
 http://groober.itch.io/nature-sentinel/
